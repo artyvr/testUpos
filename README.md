@@ -1,3 +1,3 @@
 # testupos
 
-UPOS обертка
+SB UPOS обертка
