@@ -2,9 +2,8 @@ name: Build and publish
 
 on:
   push:
-    branches: [ "main" ]
     tags:
-      - 'v*'
+      - '*'
 
 jobs:
   build:
@@ -51,7 +50,6 @@ jobs:
     - name: Publish
       uses: ncipollo/release-action@v1
       with:
-        tag: "v1.6"
         artifacts: "testUpos/testUpos.zip"
         allowUpdates: true
         token: ${{ secrets.GITHUB_TOKEN }}
