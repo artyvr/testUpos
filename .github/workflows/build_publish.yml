@@ -1,10 +1,9 @@
-name: .NET Core Desktop
+name: Build and publish
 
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    
 
 jobs:
 
@@ -52,5 +51,7 @@ jobs:
     - name: Publish
       uses: ncipollo/release-action@v1
       with:
-        tag: 1.6
+        tag: "v1.6"
         artifacts: "testUpos.zip"
+        allowUpdates: true
+        token: ${{ secrets.GITHUB_TOKEN }}
