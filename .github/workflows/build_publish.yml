@@ -40,7 +40,7 @@ jobs:
       env:
         Configuration: ${{ matrix.configuration }}
    
-    - name: Create the app package
+    - name: Build the app
       run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration /p:UapAppxPackageBuildMode=$env:Appx_Package_Build_Mode /p:AppxBundle=$env:Appx_Bundle
       env:
         Appx_Bundle: Always
