@@ -47,9 +47,14 @@ jobs:
         Appx_Package_Build_Mode: StoreUpload
         Configuration: ${{ matrix.configuration }}
 
+    - name: Rename zip
+      run: | 
+            cd testUpos
+            rename testUpos.zip testUpos_${{ github.ref_name }}.zip
+      
     - name: Publish
       uses: ncipollo/release-action@v1
       with:
-        artifacts: "testUpos/testUpos.zip"
+        artifacts: "testUpos/testUpos_${{ github.ref_name }}.zip"
         allowUpdates: true
         token: ${{ secrets.GITHUB_TOKEN }}
